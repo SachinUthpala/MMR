@@ -1,0 +1,4 @@
+For large screens : 2520 * 1080 px
+For Mobile : 2520 * 4800 px
+
+For Tablets : 820 * 1180 px.
