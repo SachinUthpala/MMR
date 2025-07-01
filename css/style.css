@@ -87,6 +87,11 @@
 
 
 
+
+/* end of extra edits */
+
+
+
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
@@ -1184,3 +1189,31 @@ height: 100%;
       margin: 20px auto 0;
     }
   }
+
+.partner-card {
+    position: relative;
+    overflow: hidden;
+}
+.partner-img {
+    transition: filter 0.3s ease;
+    display: block;
+    width: 100%;
+}
+.partner-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(255,255,255,0.1); /* optional: slight overlay */
+    pointer-events: none;
+}
+.partner-card:hover .partner-img {
+    filter: blur(3px);
+}
+.partner-card:hover .partner-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
