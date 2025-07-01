@@ -46,6 +46,14 @@
     border-bottom:2px solid #1b457f !important ;
 }
 
+.border-bottom-secondary{
+    border: none !important;
+    border-bottom:2px solid #e25169 !important ;
+}
+
+
+
+
 .text-primary{
     color: #1b457f !important ;
 }
@@ -60,6 +68,25 @@
     font-weight: 500;
 }
 
+
+.btn.btn-primary {
+    background: #1b457f !important;
+    color: #ffffff !important;
+    border: 0;
+}
+
+.btn.btn-primary:hover {
+    background: #1b457f !important;
+    color: #e25169 !important;
+    border: 1px solid #e25169 !important ;
+}
+
+
+
+
+
+
+
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
@@ -73,10 +100,27 @@
      visibility: visible;
      opacity: 1;
  }
+
+
+ .spinner-ring {
+    animation: spinner-rotate 1.2s linear infinite;
+    /* Adjust the animation speed as needed */
+}
+@keyframes spinner-rotate {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+.spinner-ring circle {
+    stroke-dasharray: 283;
+    stroke-dashoffset: 75;
+    /* Creates a partial ring for a spinner effect */
+}
+
 /*** Spinner End ***/
 
 .logo{
-    width: 100px;
+    width: 110px;
 }
 
 .back-to-top {
@@ -113,15 +157,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 
 /*** Button Start ***/
-.btn.btn-primary {
-    border: 0;
-}
 
-.btn.btn-primary:hover {
-    background: #73070700 !important;
-    color: var(--bs-primary) !important;
-    border: 1px solid var(--bs-primary) !important ;
-}
 
 .btn.btn-secondary {
     border: 0;
@@ -251,7 +287,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 @media only screen and (min-width: 1200px) {
     .img-fluid{
-        height: 450px !important;
+        height: 500px !important;
     }
 }
 

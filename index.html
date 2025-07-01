@@ -42,10 +42,15 @@
 <body class="">
 
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
+    <div id="spinner" 
+    class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex flex-column align-items-center justify-content-center bg-white">
+    <div class="spinner-image-wrapper" style="position: relative; display: inline-block;">
+        <img src="img/logo/logo.png" alt="Loading..." style="width: 250px; height: auto; object-fit: contain;">
+        <svg class="spinner-ring" width="340" height="340" viewBox="0 0 100 100" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#1b457f" stroke-width="2" stroke-linecap="round"/>
+        </svg>
     </div>
+</div>
     <!-- Spinner End -->
 
 
@@ -54,7 +59,7 @@
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-lg ">
                 <a href="#home" class="navbar-brand">
-                    <img src="./img/logo/LOGO BLACK.jpg" alt="logo" class="logo">
+                    <img src="./img/logo/logo.png" alt="logo" class="logo">
                 </a>
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -64,7 +69,7 @@
                     <div class="navbar-nav mx-auto">
                         <a href="#home" class="nav-item nav-link active">Home</a>
                         <a href="#timeline" class="nav-item nav-link">Time Line</a>
-                        <a href="./WhatWeDo.html" class="nav-item nav-link">Overview</a>
+                        <a href="#overview" class="nav-item nav-link">Overview</a>
                         <a href="./event.html" class="nav-item nav-link">Partners</a>
                         <a href="./event.html" class="nav-item nav-link">Together</a>
                         <a href="./event.html" class="nav-item nav-link">Merch</a>
@@ -90,7 +95,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-
 
     <div class="center-section wow bounceInUp" id="home">
 
@@ -388,53 +392,72 @@
 
     <br><br>
     <!-- overview section -->
-    <div class=" wow bounceInUp" data-wow-delay="0.1s">
+    <div class=" wow bounceInUp bg-blue p-5" data-wow-delay="0.1s" id="overview">
+        <br>
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small
+                class="d-inline-block fw-bold  text-uppercase bg-transparent border border-bottom-secondary rounded-pill px-4 py-1 mb-3 font-white ">Overview</small>
+            <h1 class="display-5  text-white text-headding ">Festival Overview</h1>
+            
+            <p class="text-body p-4">MMR 25 – Together is a first-of-its-kind, city-wide beach festival celebrating Negombo's cultural diversity, coastal beauty, and creative spirit. With a packed lineup of music, arts, food, and community-led experiences, this is your invitation to connect, celebrate, and belong.</p>
+        </div>
+        <br>
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated"
                     data-wow-duration="300ms"
                     style="visibility: visible; animation-duration: 300ms; animation-name: fadeInUp;">
-                    <i class="fa fa-beer medium-icon"></i>
+                    <i class="fa fa-beer medium-icon font-red"></i>
                     <span id="anim-number-pizza" class="counter-number"></span>
-                    <span class="timer counter alt-font appear text-primary" data-to="10000"
-                        data-speed="7000">10000</span>
-                    <p class="counter-title">Photos</p>
+                    <span class="timer counter alt-font appear text-white" data-to="24"
+                        data-speed="4">24</span>
+                    <p class="counter-title">Festival Experience Partners</p>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated"
                     data-wow-duration="600ms"
                     style="visibility: visible; animation-duration: 600ms; animation-name: fadeInUp;">
-                    <i class="fa fa-heart medium-icon"></i>
-                    <span class="timer counter alt-font appear text-primary" data-to="3000"
-                        data-speed="7000">3000</span>
-                    <span class="counter-title">Photograpas</span>
+                    <i class="fa fa-heart medium-icon font-red"></i>
+                    <span class="timer counter alt-font appear text-white" data-to="6"
+                        data-speed="1">6</span>
+                    <span class="counter-title">Main Festival Events</span>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten animated"
                     data-wow-duration="900ms"
                     style="visibility: visible; animation-duration: 900ms; animation-name: fadeInUp;">
-                    <i class="fa fa-anchor medium-icon"></i>
-                    <span class="timer counter alt-font appear text-primary" data-to="109" data-speed="7000">109</span>
-                    <span class="counter-title">Partners</span>
+                    <i class="fa fa-anchor medium-icon font-red"></i>
+                    <span class="timer counter alt-font appear text-white" data-to="1" data-speed="1">1</span>
+                    <span class="counter-title">Pass - Big City Festival</span>
                 </div>
                 <!-- end counter -->
-                <!-- counter -->
-                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp animated"
-                    data-wow-duration="1200ms"
-                    style="visibility: visible; animation-duration: 1200ms; animation-name: fadeInUp;">
-                    <i class="fa fa-user medium-icon"></i>
-                    <span class="timer counter alt-font appear text-primary" data-to="1000"
-                        data-speed="7000">1000</span>
-                    <span class="counter-title">Awared</span>
-                </div>
-                <!-- end counter -->
+                
             </div>
         </div>
-        <br><br><br>
+        <br>
     </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('.counter').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+
+        }); 
+    </script>
 
 
     <!-- end of overview section -->
