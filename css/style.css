@@ -1,5 +1,14 @@
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('/fonts/ProximaSoft-Regular.woff2') format('woff2'),
+         url('/fonts/ProximaSoft-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 :root {
     --bs-primary: #1b457f; /* Bootstrap blue */
+    --bs-secondary: #e25169; /* Bootstrap red */
   }
 
 .bg-white{
@@ -26,6 +35,31 @@
 .font-red{
     color: #e25169 !important ;
 }
+
+
+.border-primary{
+    border: 1px solid #1b457f !important ;
+}
+
+.border-bottom-primary{
+    border: none !important;
+    border-bottom:2px solid #1b457f !important ;
+}
+
+.text-primary{
+    color: #1b457f !important ;
+}
+
+.text-headding{
+    font-family: 'Proxima Soft', sans-serif !important;
+    text-transform: uppercase;
+}
+
+.text-body{
+    font-family: 'Montserrat', sans-serif !important ;
+    font-weight: 500;
+}
+
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
@@ -42,7 +76,7 @@
 /*** Spinner End ***/
 
 .logo{
-    width: 130px;
+    width: 100px;
 }
 
 .back-to-top {
@@ -184,7 +218,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-primary);
+    color: var(--bs-secondary);
 }
 
 .navbar .dropdown-toggle::after {
