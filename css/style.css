@@ -248,6 +248,13 @@ h4, h5, h6, .h4, .h5, .h6 {
     }
 }
 
+
+@media only screen and (min-width: 1200px) {
+    .img-fluid{
+        height: 450px !important;
+    }
+}
+
 .dropdown .dropdown-menu a:hover {
     background: var(--bs-primary);
     color: var(--bs-white);
