@@ -1330,6 +1330,7 @@ height: 100%;
 @media (max-width: 768px) {
   .partner-card2 {
     height: 250px;
+    margin-top: 10px;
   }
 
   .partner-overlay h6 {
@@ -1345,6 +1346,7 @@ height: 100%;
 @media (max-width: 480px) {
   .partner-card2 {
     height: 200px;
+    margin-bottom: 10px;
   }
 
   .partner-overlay h6 {
