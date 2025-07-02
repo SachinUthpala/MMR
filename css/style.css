@@ -865,87 +865,87 @@ height: 100%;
   }
 
   .slide-image-1{
-    background-image: url(../img/hero/1.png);
+    background-image: url(../img/hero/Resized/LARGE/LARGE-1.png);
   }
 
   @media only screen and (max-width: 767px) {
     .slide-image-1{
-        background-image: url(../img/hero/mobile1.png);
+        background-image: url(../img/hero/Resized/MOBILE/LED\ WALL\ -\ MOBILE-1.png);
       }
   }
 
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .slide-image-1{
-        background-image: url(../img/hero/tablet.png);
+        background-image: url(../img/hero/Resized/TABLET/TABLET-1.png);
       }
   }
 
 
 
   .slide-image-2{
-    background-image: url(../img/hero/1.png);
+    background-image: url(../img/hero/Resized/LARGE/LARGE-2.png);
   }
 
   @media only screen and (max-width: 767px) {
     .slide-image-2{
-        background-image: url(../img/hero/mobile1.png);
+        background-image: url(../img/hero/Resized/MOBILE/LED\ WALL\ -\ MOBILE-2.png);
       }
   }
 
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .slide-image-2{
-        background-image: url(../img/hero/tablet.png);
+        background-image: url(../img/hero/Resized/TABLET/TABLET-2.png);
       }
   }
 
 
   .slide-image-3{
-    background-image: url(../img/hero/1.png);
+    background-image: url(../img/hero/Resized/LARGE/LARGE-3.png);
   }
 
   @media only screen and (max-width: 767px) {
     .slide-image-3{
-        background-image: url(../img/hero/mobile1.png);
+        background-image: url(../img/hero/Resized/MOBILE/LED\ WALL\ -\ MOBILE-3.png);
       }
   }
 
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .slide-image-3{
-        background-image: url(../img/hero/tablet.png);
+        background-image: url(../img/hero/Resized/TABLET/TABLET-3.png);
       }
   }
 
 
   .slide-image-4{
-    background-image: url(../img/hero/1.png);
+    background-image: url(../img/hero/Resized/LARGE/LARGE-4.png);
   }
 
   @media only screen and (max-width: 767px) {
     .slide-image-4{
-        background-image: url(../img/hero/mobile1.png);
+        background-image: url(../img/hero/Resized/MOBILE/LED\ WALL\ -\ MOBILE-4.png);
       }
   }
 
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .slide-image-4{
-        background-image: url(../img/hero/tablet.png);
+        background-image: url(../img/hero/Resized/TABLET/TABLET-4.png);
       }
   }
 
 
   .slide-image-5{
-    background-image: url(../img/hero/1.png);
+    background-image: url(../img/hero/Resized/LARGE/LARGE-5.png);
   }
 
   @media only screen and (max-width: 767px) {
     .slide-image-5{
-        background-image: url(../img/hero/mobile1.png);
+        background-image: url(../img/hero/Resized/MOBILE/LED\ WALL\ -\ MOBILE-5.png);
       }
   }
 
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .slide-image-5{
-        background-image: url(../img/hero/tablet.png);
+        background-image: url(../img/hero/Resized/TABLET/TABLET-5.png);
       }
   }
 
