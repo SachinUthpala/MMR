@@ -1261,6 +1261,7 @@ height: 100%;
 .partner-card2 {
     height: 330px; /* adjust as needed */
     overflow: hidden;
+    background: #000;
   }
   
   .partner-img2 {
