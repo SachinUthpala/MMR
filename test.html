@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Card Row with Hover Glass Effect</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      background-color: #0e0f1d;
+      font-family: Arial, sans-serif;
+    }
+
+    .shop-card {
+      position: relative;
+      background-color: #1b1e3a;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .shop-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .shop-card i {
+      font-size: 40px;
+      color: orange;
+      margin-bottom: 15px;
+    }
+
+    .shop-card h5 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .shop-card p {
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    .shop-card .btn {
+      background-color: #ff6600;
+      border: none;
+      color: white;
+    }
+
+    .shop-card .btn:hover {
+      background-color: #ff8533;
+    }
+
+    /* Glass Hover Overlay */
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .shop-card:hover .card-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .overlay-text {
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 992px) {
+      .col-lg-2 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .col-lg-2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="row">
+      <!-- Repeat for each card -->
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+        <div class="shop-card">
+          <i class="fa fa-tshirt"></i>
+          <h5>T-Shirts</h5>
+          <p>Limited Edition</p>
+          <a href="#" class="btn btn-sm">Shop Now</a>
+          <div class="card-overlay">
+            <div class="overlay-text">Hot Drop 🔥</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+        <div class="shop-card">
+          <i class="fa fa-mobile"></i>
+          <h5>Mobiles</h5>
+          <p>Latest Deals</p>
+          <a href="#" class="btn btn-sm">Shop Now</a>
+          <div class="card-overlay">
+            <div class="overlay-text">Limited Stock</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+        <div class="shop-card">
+          <i class="fa fa-laptop"></i>
+          <h5>Laptops</h5>
+          <p>New Arrivals</p>
+          <a href="#" class="btn btn-sm">Shop Now</a>
+          <div class="card-overlay">
+            <div class="overlay-text">Top Picks</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+        <div class="shop-card">
+          <i class="fa fa-headphones"></i>
+          <h5>Accessories</h5>
+          <p>Top Quality</p>
+          <a href="#" class="btn btn-sm">Shop Now</a>
+          <div class="card-overlay">
+            <div class="overlay-text">Best Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+        <div class="shop-card">
+          <i class="fa fa-camera"></i>
+          <h5>Cameras</h5>
+          <p>Pro Collection</p>
+          <a href="#" class="btn btn-sm">Shop Now</a>
+          <div class="card-overlay">
+            <div class="overlay-text">New Gear</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+        <div class="shop-card">
+          <i class="fa fa-gamepad"></i>
+          <h5>Gaming</h5>
+          <p>Hot Offers</p>
+          <a href="#" class="btn btn-sm">Shop Now</a>
+          <div class="card-overlay">
+            <div class="overlay-text">Top Rated</div>
+            <a href="#" class="btn btn-sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
