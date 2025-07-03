@@ -1640,8 +1640,8 @@ height: 100%;
 
 /* Explore button */
 .explore-btn {
-  background: #262626;
-  color: #fff;
+  background:#fff;
+  color: #1e1e50;
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
@@ -1651,7 +1651,8 @@ height: 100%;
 }
 
 .explore-btn:hover {
-  background: #000;
+    color: #fff;
+  background: #1b1e3a;
 }
 
 @media(max-width: 575.98px) {
