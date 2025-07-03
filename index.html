@@ -918,6 +918,20 @@
 
 <!-- rapper -->
 
+<div class="endcorosal">
+    <main>
+  <div id="customCarousel">
+    <div class="carouselSlide carouselSelected"><img src="./img/Rally/10.png" /></div>
+    <div class="carouselSlide carouselNext"><img src="./img/Rally/I 1.png" /></div>
+    <div class="carouselSlide carouselNextRightSecond"><img src="./img/Rally/I2.png" /></div>
+    <div class="carouselSlide carouselHideRight"><img src="./img/Rally/I2.png" /></div>
+    <div class="carouselSlide carouselPrevLeftSecond"><img src="./img/Rally/I3.png" /></div>
+  </div>
+  <!-- 500 x 500 -->
+  
+</main>
+</div>
+
 
 
 
@@ -1078,8 +1092,49 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function moveToSelected(element) {
+    var selected =
+      element === "next"
+        ? $(".carouselSelected").next()
+        : element === "prev"
+        ? $(".carouselSelected").prev()
+        : element;
 
+    var next = $(selected).next();
+    var prev = $(selected).prev();
+    var prevSecond = $(prev).prev();
+    var nextSecond = $(next).next();
 
+    $(selected).removeClass().addClass("carouselSlide carouselSelected");
+    $(prev).removeClass().addClass("carouselSlide carouselPrev");
+    $(next).removeClass().addClass("carouselSlide carouselNext");
+
+    $(nextSecond).removeClass().addClass("carouselSlide carouselNextRightSecond");
+    $(prevSecond).removeClass().addClass("carouselSlide carouselPrevLeftSecond");
+
+    $(nextSecond).nextAll().removeClass().addClass("carouselSlide carouselHideRight");
+    $(prevSecond).prevAll().removeClass().addClass("carouselSlide carouselHideLeft");
+  }
+
+  $(document).keydown(function (e) {
+    if (e.which === 37) moveToSelected("prev");
+    else if (e.which === 39) moveToSelected("next");
+  });
+
+  $(".carouselSlide").click(function () {
+    moveToSelected($(this));
+  });
+
+  $("#carouselPrevBtn").click(function () {
+    moveToSelected("prev");
+  });
+
+  $("#carouselNextBtn").click(function () {
+    moveToSelected("next");
+  });
+</script>
 
 
 

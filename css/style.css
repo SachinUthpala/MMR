@@ -1368,6 +1368,15 @@ height: 100%;
 
 
 /* extra card */
+
+.endcorosal{
+     width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+}
+
   .shop-card {
     height: 200px;
       position: relative;
@@ -1378,6 +1387,7 @@ height: 100%;
       border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s ease;
+      border: 1px solid #000;
     }
 
     .shop-card:hover {
@@ -1457,3 +1467,122 @@ height: 100%;
 
     /* endd */
 
+#customCarousel {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .carouselSlide {
+      position: absolute;
+      transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+      opacity: 1;
+    }
+
+    .carouselSlide img {
+      width: 40vw;
+      max-width: 400px;
+      transition: width 1s;
+    }
+
+    .carouselHideLeft {
+      left: 0%;
+      opacity: 0;
+      transform: translateY(50%) translateX(-50%);
+    }
+
+    .carouselHideLeft img {
+      width: 20vw;
+    }
+
+    .carouselHideRight {
+      left: 100%;
+      opacity: 0;
+      transform: translateY(50%) translateX(-50%);
+    }
+
+    .carouselHideRight img {
+      width: 20vw;
+    }
+
+    .carouselPrev {
+      z-index: 5;
+      left: 30%;
+      transform: translateY(50px) translateX(-50%);
+    }
+
+    .carouselPrev img {
+      width: 30vw;
+    }
+
+    .carouselPrevLeftSecond {
+      z-index: 4;
+      left: 15%;
+      transform: translateY(50%) translateX(-50%);
+      opacity: .7;
+    }
+
+    .carouselPrevLeftSecond img {
+      width: 20vw;
+    }
+
+    .carouselSelected {
+      z-index: 10;
+      left: 50%;
+      transform: translateY(0px) translateX(-50%);
+    }
+
+    .carouselNext {
+      z-index: 5;
+      left: 70%;
+      transform: translateY(50px) translateX(-50%);
+    }
+
+    .carouselNext img {
+      width: 30vw;
+    }
+
+    .carouselNextRightSecond {
+      z-index: 4;
+      left: 85%;
+      transform: translateY(50%) translateX(-50%);
+      opacity: .7;
+    }
+
+    .carouselNextRightSecond img {
+      width: 20vw;
+    }
+
+    .carouselButtons {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .carouselSlide img,
+      .carouselPrev img,
+      .carouselNext img,
+      .carouselPrevLeftSecond img,
+      .carouselNextRightSecond img,
+      .carouselHideLeft img,
+      .carouselHideRight img {
+        width: 60vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .carouselSlide img,
+      .carouselPrev img,
+      .carouselNext img,
+      .carouselPrevLeftSecond img,
+      .carouselNextRightSecond img,
+      .carouselHideLeft img,
+      .carouselHideRight img {
+        width: 80vw;
+      }
+    }

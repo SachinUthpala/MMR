@@ -1,182 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Card Row with Hover Glass Effect</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive 3D Carousel</title>
   <style>
-    body {
-      background-color: #0e0f1d;
-      font-family: Arial, sans-serif;
-    }
-
-    .shop-card {
-      position: relative;
-      background-color: #1b1e3a;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-
-    .shop-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .shop-card i {
-      font-size: 40px;
-      color: orange;
-      margin-bottom: 15px;
-    }
-
-    .shop-card h5 {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .shop-card p {
-      margin-bottom: 15px;
-      color: #ccc;
-    }
-
-    .shop-card .btn {
-      background-color: #ff6600;
-      border: none;
-      color: white;
-    }
-
-    .shop-card .btn:hover {
-      background-color: #ff8533;
-    }
-
-    /* Glass Hover Overlay */
-    .card-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
+    html, body, main {
       width: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      opacity: 0;
-      visibility: hidden;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+    }
+
+    #customCarousel {
+      position: relative;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease-in-out;
+      overflow: hidden;
     }
 
-    .shop-card:hover .card-overlay {
+    .carouselSlide {
+      position: absolute;
+      transition: transform 1s, left 1s, opacity 1s, z-index 0s;
       opacity: 1;
-      visibility: visible;
     }
 
-    .overlay-text {
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
+    .carouselSlide img {
+      width: 40vw;
+      max-width: 400px;
+      transition: width 1s;
     }
 
-    /* Responsive tweaks */
-    @media (max-width: 992px) {
-      .col-lg-2 {
-        flex: 0 0 33.3333%;
-        max-width: 33.3333%;
+    .carouselHideLeft {
+      left: 0%;
+      opacity: 0;
+      transform: translateY(50%) translateX(-50%);
+    }
+
+    .carouselHideLeft img {
+      width: 20vw;
+    }
+
+    .carouselHideRight {
+      left: 100%;
+      opacity: 0;
+      transform: translateY(50%) translateX(-50%);
+    }
+
+    .carouselHideRight img {
+      width: 20vw;
+    }
+
+    .carouselPrev {
+      z-index: 5;
+      left: 30%;
+      transform: translateY(50px) translateX(-50%);
+    }
+
+    .carouselPrev img {
+      width: 30vw;
+    }
+
+    .carouselPrevLeftSecond {
+      z-index: 4;
+      left: 15%;
+      transform: translateY(50%) translateX(-50%);
+      opacity: .7;
+    }
+
+    .carouselPrevLeftSecond img {
+      width: 20vw;
+    }
+
+    .carouselSelected {
+      z-index: 10;
+      left: 50%;
+      transform: translateY(0px) translateX(-50%);
+    }
+
+    .carouselNext {
+      z-index: 5;
+      left: 70%;
+      transform: translateY(50px) translateX(-50%);
+    }
+
+    .carouselNext img {
+      width: 30vw;
+    }
+
+    .carouselNextRightSecond {
+      z-index: 4;
+      left: 85%;
+      transform: translateY(50%) translateX(-50%);
+      opacity: .7;
+    }
+
+    .carouselNextRightSecond img {
+      width: 20vw;
+    }
+
+    .carouselButtons {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .carouselSlide img,
+      .carouselPrev img,
+      .carouselNext img,
+      .carouselPrevLeftSecond img,
+      .carouselNextRightSecond img,
+      .carouselHideLeft img,
+      .carouselHideRight img {
+        width: 60vw;
       }
     }
 
-    @media (max-width: 576px) {
-      .col-lg-2 {
-        flex: 0 0 100%;
-        max-width: 100%;
+    @media (max-width: 480px) {
+      .carouselSlide img,
+      .carouselPrev img,
+      .carouselNext img,
+      .carouselPrevLeftSecond img,
+      .carouselNextRightSecond img,
+      .carouselHideLeft img,
+      .carouselHideRight img {
+        width: 80vw;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="container py-5">
-    <div class="row">
-      <!-- Repeat for each card -->
-      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-        <div class="shop-card">
-          <i class="fa fa-tshirt"></i>
-          <h5>T-Shirts</h5>
-          <p>Limited Edition</p>
-          <a href="#" class="btn btn-sm">Shop Now</a>
-          <div class="card-overlay">
-            <div class="overlay-text">Hot Drop 🔥</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-        <div class="shop-card">
-          <i class="fa fa-mobile"></i>
-          <h5>Mobiles</h5>
-          <p>Latest Deals</p>
-          <a href="#" class="btn btn-sm">Shop Now</a>
-          <div class="card-overlay">
-            <div class="overlay-text">Limited Stock</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-        <div class="shop-card">
-          <i class="fa fa-laptop"></i>
-          <h5>Laptops</h5>
-          <p>New Arrivals</p>
-          <a href="#" class="btn btn-sm">Shop Now</a>
-          <div class="card-overlay">
-            <div class="overlay-text">Top Picks</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-        <div class="shop-card">
-          <i class="fa fa-headphones"></i>
-          <h5>Accessories</h5>
-          <p>Top Quality</p>
-          <a href="#" class="btn btn-sm">Shop Now</a>
-          <div class="card-overlay">
-            <div class="overlay-text">Best Value</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-        <div class="shop-card">
-          <i class="fa fa-camera"></i>
-          <h5>Cameras</h5>
-          <p>Pro Collection</p>
-          <a href="#" class="btn btn-sm">Shop Now</a>
-          <div class="card-overlay">
-            <div class="overlay-text">New Gear</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-        <div class="shop-card">
-          <i class="fa fa-gamepad"></i>
-          <h5>Gaming</h5>
-          <p>Hot Offers</p>
-          <a href="#" class="btn btn-sm">Shop Now</a>
-          <div class="card-overlay">
-            <div class="overlay-text">Top Rated</div>
-            <a href="#" class="btn btn-sm">Shop Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
+<main>
+  <div id="customCarousel">
+    <div class="carouselSlide carouselSelected"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
+    <div class="carouselSlide carouselNext"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
+    <div class="carouselSlide carouselNextRightSecond"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
+    <div class="carouselSlide carouselHideRight"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
+    <div class="carouselSlide carouselPrevLeftSecond"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
+    <div class="carouselSlide carouselPrev"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
+    <div class="carouselSlide carouselHideLeft"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
   </div>
+  <div class="carouselButtons">
+    <button id="carouselPrevBtn">Prev</button>
+    <button id="carouselNextBtn">Next</button>
+  </div>
+</main>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function moveToSelected(element) {
+    var selected =
+      element === "next"
+        ? $(".carouselSelected").next()
+        : element === "prev"
+        ? $(".carouselSelected").prev()
+        : element;
+
+    var next = $(selected).next();
+    var prev = $(selected).prev();
+    var prevSecond = $(prev).prev();
+    var nextSecond = $(next).next();
+
+    $(selected).removeClass().addClass("carouselSlide carouselSelected");
+    $(prev).removeClass().addClass("carouselSlide carouselPrev");
+    $(next).removeClass().addClass("carouselSlide carouselNext");
+
+    $(nextSecond).removeClass().addClass("carouselSlide carouselNextRightSecond");
+    $(prevSecond).removeClass().addClass("carouselSlide carouselPrevLeftSecond");
+
+    $(nextSecond).nextAll().removeClass().addClass("carouselSlide carouselHideRight");
+    $(prevSecond).prevAll().removeClass().addClass("carouselSlide carouselHideLeft");
+  }
+
+  $(document).keydown(function (e) {
+    if (e.which === 37) moveToSelected("prev");
+    else if (e.which === 39) moveToSelected("next");
+  });
+
+  $(".carouselSlide").click(function () {
+    moveToSelected($(this));
+  });
+
+  $("#carouselPrevBtn").click(function () {
+    moveToSelected("prev");
+  });
+
+  $("#carouselNextBtn").click(function () {
+    moveToSelected("next");
+  });
+</script>
 </body>
 </html>
