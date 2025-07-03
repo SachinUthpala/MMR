@@ -1,199 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive 3D Carousel</title>
+  <meta charset="UTF-8">
+  <title>3D Testimonial Carousel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    html, body, main {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: #111;
-    }
-
-    #customCarousel {
-      position: relative;
-      height: 100vh;
+    body {
+      background: #007bff;
       display: flex;
-      align-items: center;
       justify-content: center;
-      overflow: hidden;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
 
-    .carouselSlide {
-      position: absolute;
-      transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+    .testimonial-carousel {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      padding: 60px 20px;
+    }
+
+    .testimonial-item {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+      transform: scale(0.8);
+      opacity: 0.5;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .carousel-item.active .testimonial-item {
+      transform: scale(1);
       opacity: 1;
     }
 
-    .carouselSlide img {
-      width: 40vw;
-      max-width: 400px;
-      transition: width 1s;
+    .testimonial-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid #00e1ff;
+      margin: 0 auto 20px;
+      object-fit: cover;
     }
 
-    .carouselHideLeft {
-      left: 0%;
-      opacity: 0;
-      transform: translateY(50%) translateX(-50%);
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 18px;
+      margin-top: 15px;
     }
 
-    .carouselHideLeft img {
-      width: 20vw;
+    .testimonial-role {
+      color: #00e1ff;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .carouselHideRight {
-      left: 100%;
-      opacity: 0;
-      transform: translateY(50%) translateX(-50%);
+    .carousel-indicators [data-bs-target] {
+      background-color: #fff;
     }
 
-    .carouselHideRight img {
-      width: 20vw;
-    }
-
-    .carouselPrev {
-      z-index: 5;
-      left: 30%;
-      transform: translateY(50px) translateX(-50%);
-    }
-
-    .carouselPrev img {
-      width: 30vw;
-    }
-
-    .carouselPrevLeftSecond {
-      z-index: 4;
-      left: 15%;
-      transform: translateY(50%) translateX(-50%);
-      opacity: .7;
-    }
-
-    .carouselPrevLeftSecond img {
-      width: 20vw;
-    }
-
-    .carouselSelected {
-      z-index: 10;
-      left: 50%;
-      transform: translateY(0px) translateX(-50%);
-    }
-
-    .carouselNext {
-      z-index: 5;
-      left: 70%;
-      transform: translateY(50px) translateX(-50%);
-    }
-
-    .carouselNext img {
-      width: 30vw;
-    }
-
-    .carouselNextRightSecond {
-      z-index: 4;
-      left: 85%;
-      transform: translateY(50%) translateX(-50%);
-      opacity: .7;
-    }
-
-    .carouselNextRightSecond img {
-      width: 20vw;
-    }
-
-    .carouselButtons {
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .carouselSlide img,
-      .carouselPrev img,
-      .carouselNext img,
-      .carouselPrevLeftSecond img,
-      .carouselNextRightSecond img,
-      .carouselHideLeft img,
-      .carouselHideRight img {
-        width: 60vw;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .carouselSlide img,
-      .carouselPrev img,
-      .carouselNext img,
-      .carouselPrevLeftSecond img,
-      .carouselNextRightSecond img,
-      .carouselHideLeft img,
-      .carouselHideRight img {
-        width: 80vw;
+    @media (max-width: 576px) {
+      .testimonial-item {
+        padding: 30px 20px;
       }
     }
   </style>
 </head>
 <body>
 
-<main>
-  <div id="customCarousel">
-    <div class="carouselSlide carouselSelected"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
-    <div class="carouselSlide carouselNext"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
-    <div class="carouselSlide carouselNextRightSecond"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
-    <div class="carouselSlide carouselHideRight"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
-    <div class="carouselSlide carouselPrevLeftSecond"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
-    <div class="carouselSlide carouselPrev"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
-    <div class="carouselSlide carouselHideLeft"><img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" /></div>
+<div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <div class="testimonial-item">
+        <img src="https://i.pravatar.cc/100?img=1" class="testimonial-img" alt="User">
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Minus veritatis repellendus delectus, est, alias recusandae."</p>
+        <div class="testimonial-name">Jessica Jones</div>
+        <div class="testimonial-role">Web Designer</div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="testimonial-item">
+        <img src="https://i.pravatar.cc/100?img=2" class="testimonial-img" alt="User">
+        <p>"Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur."</p>
+        <div class="testimonial-name">John Smith</div>
+        <div class="testimonial-role">UI/UX Expert</div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="testimonial-item">
+        <img src="https://i.pravatar.cc/100?img=3" class="testimonial-img" alt="User">
+        <p>"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."</p>
+        <div class="testimonial-name">Sarah Lee</div>
+        <div class="testimonial-role">Developer</div>
+      </div>
+    </div>
+
   </div>
-  <div class="carouselButtons">
-    <button id="carouselPrevBtn">Prev</button>
-    <button id="carouselNextBtn">Next</button>
+
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
   </div>
-</main>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  function moveToSelected(element) {
-    var selected =
-      element === "next"
-        ? $(".carouselSelected").next()
-        : element === "prev"
-        ? $(".carouselSelected").prev()
-        : element;
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    var next = $(selected).next();
-    var prev = $(selected).prev();
-    var prevSecond = $(prev).prev();
-    var nextSecond = $(next).next();
-
-    $(selected).removeClass().addClass("carouselSlide carouselSelected");
-    $(prev).removeClass().addClass("carouselSlide carouselPrev");
-    $(next).removeClass().addClass("carouselSlide carouselNext");
-
-    $(nextSecond).removeClass().addClass("carouselSlide carouselNextRightSecond");
-    $(prevSecond).removeClass().addClass("carouselSlide carouselPrevLeftSecond");
-
-    $(nextSecond).nextAll().removeClass().addClass("carouselSlide carouselHideRight");
-    $(prevSecond).prevAll().removeClass().addClass("carouselSlide carouselHideLeft");
-  }
-
-  $(document).keydown(function (e) {
-    if (e.which === 37) moveToSelected("prev");
-    else if (e.which === 39) moveToSelected("next");
-  });
-
-  $(".carouselSlide").click(function () {
-    moveToSelected($(this));
-  });
-
-  $("#carouselPrevBtn").click(function () {
-    moveToSelected("prev");
-  });
-
-  $("#carouselNextBtn").click(function () {
-    moveToSelected("next");
-  });
-</script>
 </body>
 </html>
