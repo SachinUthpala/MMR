@@ -1,3 +1,17 @@
+<?php
+session_start();
+require './Admin/BackEnd/conn.php';
+ini_set('display_errors', 0);
+
+
+$sql = "SELECT * FROM `experiences`";
+$smtp = $conn->prepare($sql);
+$smtp->execute();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,26 +115,28 @@
 <div class="endcorosal py-5" id="Rally">
      <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <small
-                    class="d-inline-block fw-bold text-primary text-uppercase bg-transparent border border-bottom-primary rounded-pill px-4 py-1 mb-3">Rally</small>
-                <h1 class="display-5 mb-5 font-blue text-headding">Explore Negombo Rally </h1>
+                    class="d-inline-block fw-bold text-primary text-uppercase bg-transparent border border-bottom-primary rounded-pill px-4 py-1 mb-3">Experiences</small>
+                <h1 class="display-5 mb-5 font-blue text-headding">Explore Partners Experiences </h1>
             </div>
    
 <div class="container py-4">
   <div class="row justify-content-center">
-    
+  <?php while($row = $smtp->fetch(PDO::FETCH_ASSOC)){ ?>
     <!-- Card 1 -->
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card2">
-        <div class="box front" style="background: url('./img/hotel.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center;">
-  <h4 class="bg-blue text-white" style="width: 100%; margin: 0; padding: 10px 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">hotel 1</h4>
+        <div class="box front" style="background: url('<?php echo $row['hotelImage']; ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center;">
+  <h4 class="bg-blue text-white" style="width: 100%; margin: 0; padding: 10px 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;"><?php echo $row['hotelName']; ?></h4>
 </div>
         
-        <div class="box back" style="background: linear-gradient(#1e1e5085,#1e1e5081) ,url('./img/hotel.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;flex-direction: column;gap: 5px;text-align: center;">
-        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptatibus officia corporis, cumque odit quidem!</p>  
+        <div class="box back" style="background: linear-gradient(#1e1e5085,#1e1e5081) ,url('<?php echo $row['hotelImage']; ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;flex-direction: column;gap: 5px;text-align: center;">
+        <p class="text-white"><?php echo $row['hotelDiscription']; ?></p>  
         <a href="./img/Rally/I3.png" data-lightbox="gallery" class="explore-btn">Explore</a>
         </div>
       </div>
     </div>
+
+    <?php } ?>
 
     
 
